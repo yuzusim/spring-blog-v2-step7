@@ -64,6 +64,7 @@ public class BoardService {
     public List<BoardResponse.MainDTO> 글목록조회() {
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
         List<Board> boardList = boardJPARepository.findAll(sort);
+
         return boardList.stream().map(board -> new BoardResponse.MainDTO(board)).toList();
     }
 
